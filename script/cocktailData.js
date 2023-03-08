@@ -1,14 +1,7 @@
 const cocktailData = [
   {
     name: "Dirty Martini",
-    ingredients: [
-      "vodka",
-      "dry vermouth",
-      "gin",
-      "vermouth",
-      "olives",
-      "brine",
-    ],
+    ingredients: ["vodka", "vermouth", "olives"],
     recipe: ["2.5 oz vodka", "0.5oz dry vermouth", "0.5oz olive brine"],
     steps: [
       "Add the gin or vodka, vermouth and olive brine to a mixing glass filled with ice and stir until well-chilled.",
@@ -18,7 +11,7 @@ const cocktailData = [
   },
   {
     name: "Tequila Sunrise",
-    ingredients: ["tequila", "orange juice", "grenadine", "orange"],
+    ingredients: ["tequila", "orange juice", "grenadine"],
     recipe: [
       "2oz blanco tequila",
       "4oz orange juice, freshly squeezed or boxed",
