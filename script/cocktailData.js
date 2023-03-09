@@ -24,3 +24,5 @@ const cocktailData = [
     ],
   },
 ];
+
+export default cocktailData;

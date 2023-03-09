@@ -1,43 +1,42 @@
 import React, { useState } from "react";
+import cocktailData from "../../../script/cocktailData";
 
-// function for matching a cocktail to ingredients
 /*
-Takes the user input values and checks them against the ingredients in the array of cocktail objects
+Function for matching a cocktail to ingredients
+Checks the array of userIngredients against the array of cocktail ingredients for each cocktail in cocktailData
+
 example:
 - user inputs "vodka" "rum" "vermouth" "olives" "pineapple juice"
 - matches with dirty martini ["vodka", "vermouth", "olives"]
 - renders dirty martini card component 
-
-psuedocode
-Gather the form inputs and put them in a array (an array of strings)
-need a place to store matching cocktails
-Loop through the cocktailData array, inspecting the ingredients array at each object 
-    - if the first element in the array matches any of the elements in the user inputs array
-        - move onto the next element and do the check
-            - if we end up matching all of the cocktail ingredients, we store the cocktail object in our matching cocktails array
-    - if the first element does not match and of the user inputs
-        - move onto the next cocktail
 */
 
 // set up each of the inputs as state
 // do an on change that updates the input with the input from the event
 
 const SearchForm = () => {
+  // console.log(cocktailData);
+  const recipeList = cocktailData;
   const [ingredient1, setIngredient1] = useState("");
   const [ingredient2, setIngredient2] = useState("");
   const [ingredient3, setIngredient3] = useState("");
   const [ingredient4, setIngredient4] = useState("");
   const [ingredient5, setIngredient5] = useState("");
+  const [possibleRecipes, setPossibleRecipes] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(
-      ingredient1,
-      ingredient2,
-      ingredient3,
-      ingredient4,
-      ingredient5
-    );
+    const userIngredients = [
+      ingredient1.toLowerCase(),
+      ingredient2.toLowerCase(),
+      ingredient3.toLowerCase(),
+      ingredient4.toLowerCase(),
+      ingredient5.toLowerCase(),
+    ];
+    console.log(userIngredients);
+
+    // es
+
     document.getElementById("searchForm").reset();
   };
 
