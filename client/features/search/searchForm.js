@@ -14,6 +14,48 @@ example:
 // set up each of the inputs as state
 // do an on change that updates the input with the input from the event
 
+const ingredientCheck = (mergedSortedIngredients, recipeIngredients) => {
+  console.log("we're checking ingredients");
+  let ingredientMatchCount = 0;
+  let j = 0;
+  while (
+    j < mergedSortedIngredients.length &&
+    ingredientMatchCount !== recipeIngredients.length
+  ) {
+    console.log("j:", j);
+    let current = mergedSortedIngredients[j];
+    let next = mergedSortedIngredients[j + 1];
+    if (current === next) {
+      console.log("found a matching ingredient");
+      ingredientMatchCount++;
+      j += 2;
+    }
+    if (current !== next) {
+      console.log(current, "does not equal", next);
+      j += 1;
+    }
+  }
+  return ingredientMatchCount === recipeIngredients.length;
+};
+
+const recipeCheck = (recipeList, userIngredients) => {
+  // a place to store the cocktail objects that are matches
+  const cocktailMatches = [];
+  // loop through the recipeList checking each recipe's ingreidents array against the userIngredients array
+  for (let i = 0; i < recipeList.length; i++) {
+    const recipeIngredients = recipeList[i].ingredients;
+    // merge and sort the ingredient list for the cocktail we are on with the user's ingredients
+    const mergedSortedIngredients = recipeIngredients
+      .concat(userIngredients)
+      .sort();
+    console.log("mergedSortedIngredients", mergedSortedIngredients);
+    if (ingredientCheck(mergedSortedIngredients, recipeIngredients) === true) {
+      cocktailMatches.push(recipeList[i]);
+    }
+  }
+  console.log("cocktailMatches:", cocktailMatches);
+};
+
 const SearchForm = () => {
   // console.log(cocktailData);
   const recipeList = cocktailData;
@@ -33,10 +75,8 @@ const SearchForm = () => {
       ingredient4.toLowerCase(),
       ingredient5.toLowerCase(),
     ];
-    console.log(userIngredients);
-
-    // es
-
+    console.log("userIngredients:", userIngredients);
+    recipeCheck(recipeList, userIngredients);
     document.getElementById("searchForm").reset();
   };
 
