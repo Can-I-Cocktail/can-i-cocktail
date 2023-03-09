@@ -1,16 +1,19 @@
 import React from "react";
-import { cocktailData } from "./script/cocktailData";
+import cocktailData from "../../../script/cocktailData";
 
-const SingleRecipe= () => {
-    const { name, ingredients, recipe, directions} = cocktailData;
+const cocktailList = cocktailData;
+console.log(cocktailList);
+
+const SingleRecipe = () => {
     return (
-        <div>
-            <h2>{name}</h2>
-            <h3>{ingredients}</h3>
-            <h3>{recipe}</h3>
-            <h3>{directions}</h3>
-        </div>
-    )
+      <div>
+        <h2>{cocktailList[cocktailName]}</h2>
+        <h3>{cocktailList[ingredients]}</h3>
+        <h3>{cocktailList[recipe]}</h3>
+        <h3>{cocktailList[directions]}</h3>
+      </div>
+    );
 }
+console.log(cocktailList[0].recipe)
 
 export default SingleRecipe;

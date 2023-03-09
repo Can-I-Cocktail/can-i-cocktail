@@ -1,6 +1,6 @@
 const cocktailData = [
   {
-    name: "Dirty Martini",
+    cocktailName: "Dirty Martini",
     ingredients: ["vodka", "vermouth", "olives"],
     recipe: ["2.5 oz vodka", "0.5oz dry vermouth", "0.5oz olive brine"],
     directions: [
@@ -10,7 +10,7 @@ const cocktailData = [
     ],
   },
   {
-    name: "Tequila Sunrise",
+    cocktailName: "Tequila Sunrise",
     ingredients: ["tequila", "orange juice", "grenadine"],
     recipe: [
       "2oz blanco tequila",
